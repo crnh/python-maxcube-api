@@ -5,16 +5,17 @@ logger = logging.getLogger(__name__)
 
 
 class MaxCubeConnection(object):
-    def __init__(self, host, port):
+    def __init__(self, host, port, keep_open=False):
         self.host = host
         self.port = port
+        self.keep_open = keep_open
         self.socket = None
         self.response = None
 
     def connect(self):
         logger.debug('Connecting to Max! Cube at ' + self.host + ':' + str(self.port))
         try:
-            if self.socket:
+            if self.socket and not self.keep_open:
                 self.disconnect()
         except:
             logger.debug('Tried disconnecting from cube, caught Exception probably due to stale connection.')
