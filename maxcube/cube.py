@@ -80,7 +80,9 @@ class MaxCube(MaxDevice):
         self.connection.connect()
         response = self.connection.response
         self.parse_response(response)
-        self.connection.disconnect()
+        
+        if not self.connection.keep_open:
+            self.connection.disconnect()
 
     def get_devices(self):
         return self.devices
