@@ -1,3 +1,7 @@
+# ToDo
+
+- Add functionality to keep the connection open
+
 eQ-3/ELV MAX! Cube Python API |Build Status| |Coverage Status|
 =============================
 
